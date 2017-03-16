@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Random;
+	 
+	public class test
+	{
+	    Random generator = new Random();
+
+	   public test()  //leave the constructor alone
+	   {
+	        generator = new Random();
+	        final long SEED = 42;
+	        generator.setSeed(SEED);
+	   }
+	    
+	    public static void main(String[] args){
+	    	test t=new test();
+	        Scanner in=new Scanner(System.in);
+	        String word=in.nextLine();
+	        System.out.println(t.round(word));
+	        in.close();
+	    }
+	   public  String round(String word)
+	   {int i=word.length();
+       char[] c=word.toCharArray();
+       
+	       while(i-->0){
+	       int a=generator.nextInt(word.length()-1);
+	       int b=a+generator.nextInt(word.length()-a);
+	       
+	       char tmp=c[a];
+	       c[a]=c[b];
+	       c[b]=tmp;
+	      
+                
+	   }
+	       String newword=String.valueOf(c);
+	       return newword;	    }
+
+
+	}
+
+	 
+
+
